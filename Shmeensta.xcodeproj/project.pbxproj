@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9361F7946C5138C7595EB33C /* libPods-Shmeensta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */; };
+		95365F1C1B3948A3009E552E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F1B1B3948A3009E552E /* main.m */; };
+		95365F1F1B3948A3009E552E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F1E1B3948A3009E552E /* AppDelegate.m */; };
+		95365F251B3948A3009E552E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95365F231B3948A3009E552E /* Main.storyboard */; };
+		95365F271B3948A3009E552E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95365F261B3948A3009E552E /* Images.xcassets */; };
+		95365F2A1B3948A3009E552E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95365F281B3948A3009E552E /* LaunchScreen.xib */; };
+		95365F361B3948A3009E552E /* ShmeenstaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F351B3948A3009E552E /* ShmeenstaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95365F301B3948A3009E552E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95365F0E1B3948A3009E552E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95365F151B3948A3009E552E;
+			remoteInfo = Shmeensta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F1F4672446A2910A33A5322 /* Pods-Shmeensta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shmeensta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta.debug.xcconfig"; sourceTree = "<group>"; };
+		95365F161B3948A3009E552E /* Shmeensta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shmeensta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95365F1A1B3948A3009E552E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95365F1B1B3948A3009E552E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95365F1D1B3948A3009E552E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		95365F1E1B3948A3009E552E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		95365F241B3948A3009E552E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95365F261B3948A3009E552E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		95365F291B3948A3009E552E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		95365F2F1B3948A3009E552E /* ShmeenstaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShmeenstaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95365F341B3948A3009E552E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95365F351B3948A3009E552E /* ShmeenstaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShmeenstaTests.m; sourceTree = "<group>"; };
+		9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shmeensta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta.release.xcconfig"; sourceTree = "<group>"; };
+		E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shmeensta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95365F131B3948A3009E552E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9361F7946C5138C7595EB33C /* libPods-Shmeensta.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95365F2C1B3948A3009E552E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C4013757B1B1EABEB6B9308 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F1F4672446A2910A33A5322 /* Pods-Shmeensta.debug.xcconfig */,
+				9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		95365F0D1B3948A3009E552E = {
+			isa = PBXGroup;
+			children = (
+				95365F181B3948A3009E552E /* Shmeensta */,
+				95365F321B3948A3009E552E /* ShmeenstaTests */,
+				95365F171B3948A3009E552E /* Products */,
+				1C4013757B1B1EABEB6B9308 /* Pods */,
+				F9EF642D02B4C2FBB6FAB0EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		95365F171B3948A3009E552E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95365F161B3948A3009E552E /* Shmeensta.app */,
+				95365F2F1B3948A3009E552E /* ShmeenstaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95365F181B3948A3009E552E /* Shmeensta */ = {
+			isa = PBXGroup;
+			children = (
+				95365F1D1B3948A3009E552E /* AppDelegate.h */,
+				95365F1E1B3948A3009E552E /* AppDelegate.m */,
+				95365F231B3948A3009E552E /* Main.storyboard */,
+				95365F261B3948A3009E552E /* Images.xcassets */,
+				95365F281B3948A3009E552E /* LaunchScreen.xib */,
+				95365F191B3948A3009E552E /* Supporting Files */,
+			);
+			path = Shmeensta;
+			sourceTree = "<group>";
+		};
+		95365F191B3948A3009E552E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95365F1A1B3948A3009E552E /* Info.plist */,
+				95365F1B1B3948A3009E552E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95365F321B3948A3009E552E /* ShmeenstaTests */ = {
+			isa = PBXGroup;
+			children = (
+				95365F351B3948A3009E552E /* ShmeenstaTests.m */,
+				95365F331B3948A3009E552E /* Supporting Files */,
+			);
+			path = ShmeenstaTests;
+			sourceTree = "<group>";
+		};
+		95365F331B3948A3009E552E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95365F341B3948A3009E552E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9EF642D02B4C2FBB6FAB0EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95365F151B3948A3009E552E /* Shmeensta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95365F391B3948A3009E552E /* Build configuration list for PBXNativeTarget "Shmeensta" */;
+			buildPhases = (
+				1D93D25F025621A1E7DC864C /* Check Pods Manifest.lock */,
+				95365F121B3948A3009E552E /* Sources */,
+				95365F131B3948A3009E552E /* Frameworks */,
+				95365F141B3948A3009E552E /* Resources */,
+				E8705919E7E7C749C2F62D2C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shmeensta;
+			productName = Shmeensta;
+			productReference = 95365F161B3948A3009E552E /* Shmeensta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95365F2E1B3948A3009E552E /* ShmeenstaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95365F3C1B3948A3009E552E /* Build configuration list for PBXNativeTarget "ShmeenstaTests" */;
+			buildPhases = (
+				95365F2B1B3948A3009E552E /* Sources */,
+				95365F2C1B3948A3009E552E /* Frameworks */,
+				95365F2D1B3948A3009E552E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95365F311B3948A3009E552E /* PBXTargetDependency */,
+			);
+			name = ShmeenstaTests;
+			productName = ShmeenstaTests;
+			productReference = 95365F2F1B3948A3009E552E /* ShmeenstaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95365F0E1B3948A3009E552E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Dmitry Vlasov";
+				TargetAttributes = {
+					95365F151B3948A3009E552E = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					95365F2E1B3948A3009E552E = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 95365F151B3948A3009E552E;
+					};
+				};
+			};
+			buildConfigurationList = 95365F111B3948A3009E552E /* Build configuration list for PBXProject "Shmeensta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95365F0D1B3948A3009E552E;
+			productRefGroup = 95365F171B3948A3009E552E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95365F151B3948A3009E552E /* Shmeensta */,
+				95365F2E1B3948A3009E552E /* ShmeenstaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95365F141B3948A3009E552E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95365F251B3948A3009E552E /* Main.storyboard in Resources */,
+				95365F2A1B3948A3009E552E /* LaunchScreen.xib in Resources */,
+				95365F271B3948A3009E552E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95365F2D1B3948A3009E552E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D93D25F025621A1E7DC864C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E8705919E7E7C749C2F62D2C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95365F121B3948A3009E552E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95365F1F1B3948A3009E552E /* AppDelegate.m in Sources */,
+				95365F1C1B3948A3009E552E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95365F2B1B3948A3009E552E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95365F361B3948A3009E552E /* ShmeenstaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95365F311B3948A3009E552E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95365F151B3948A3009E552E /* Shmeensta */;
+			targetProxy = 95365F301B3948A3009E552E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95365F231B3948A3009E552E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95365F241B3948A3009E552E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		95365F281B3948A3009E552E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95365F291B3948A3009E552E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95365F371B3948A3009E552E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		95365F381B3948A3009E552E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95365F3A1B3948A3009E552E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1F4672446A2910A33A5322 /* Pods-Shmeensta.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Shmeensta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		95365F3B1B3948A3009E552E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Shmeensta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		95365F3D1B3948A3009E552E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShmeenstaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shmeensta.app/Shmeensta";
+			};
+			name = Debug;
+		};
+		95365F3E1B3948A3009E552E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShmeenstaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shmeensta.app/Shmeensta";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95365F111B3948A3009E552E /* Build configuration list for PBXProject "Shmeensta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95365F371B3948A3009E552E /* Debug */,
+				95365F381B3948A3009E552E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95365F391B3948A3009E552E /* Build configuration list for PBXNativeTarget "Shmeensta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95365F3A1B3948A3009E552E /* Debug */,
+				95365F3B1B3948A3009E552E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95365F3C1B3948A3009E552E /* Build configuration list for PBXNativeTarget "ShmeenstaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95365F3D1B3948A3009E552E /* Debug */,
+				95365F3E1B3948A3009E552E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95365F0E1B3948A3009E552E /* Project object */;
+}
