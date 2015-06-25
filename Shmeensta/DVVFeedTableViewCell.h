@@ -1,5 +1,5 @@
 //
-//  DVVFeedTableViewController.h
+//  DVVFeedTableViewCell.h
 //  Shmeensta
 //
 //  Created by Dmitrii Vlasov on 23.06.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DVVFeedTableViewController : UITableViewController
-
-@property (strong, nonatomic) NSString *userID;
+@interface DVVFeedTableViewCell : UITableViewCell
 
 @end

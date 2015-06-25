@@ -59,10 +59,11 @@ static NSString *redirectURI = @"ig3836f2581032482483b7120bdf405f64://authorize"
 }
 
 - (void)showFeed {
-    
-    DVVFeedTableViewController *vc = [[DVVFeedTableViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:nil];
 
+//    DVVFeedTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DVVFeedTableViewController"];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    [self performSegueWithIdentifier:@"DVVShowFeed" sender:self];
 }
 
 - (void)receiveAccessToken {
@@ -77,7 +78,6 @@ static NSString *redirectURI = @"ig3836f2581032482483b7120bdf405f64://authorize"
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *accessToken;
     
     NSString *query = [[request URL] description];
@@ -91,6 +91,8 @@ static NSString *redirectURI = @"ig3836f2581032482483b7120bdf405f64://authorize"
         NSLog(@"%@", accessToken);
         
         self.webView.delegate = nil;
+
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:accessToken forKey:@"accessToken"];
         
         DVVFeedTableViewController *vc = [[DVVFeedTableViewController alloc] init];

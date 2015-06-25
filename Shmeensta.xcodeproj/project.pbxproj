@@ -16,6 +16,8 @@
 		95365F361B3948A3009E552E /* ShmeenstaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F351B3948A3009E552E /* ShmeenstaTests.m */; };
 		95365F411B394AF8009E552E /* DVVFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F401B394AF8009E552E /* DVVFeedTableViewController.m */; };
 		95365F441B394CBF009E552E /* DVVLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F431B394CBF009E552E /* DVVLoginViewController.m */; };
+		95365F481B3951F8009E552E /* DVVFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F471B3951F8009E552E /* DVVFeedTableViewCell.m */; };
+		95365F4C1B3C420B009E552E /* DVVPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F4B1B3C420B009E552E /* DVVPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		95365F401B394AF8009E552E /* DVVFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVFeedTableViewController.m; sourceTree = "<group>"; };
 		95365F421B394CBF009E552E /* DVVLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVLoginViewController.h; sourceTree = "<group>"; };
 		95365F431B394CBF009E552E /* DVVLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVLoginViewController.m; sourceTree = "<group>"; };
+		95365F461B3951F8009E552E /* DVVFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVFeedTableViewCell.h; sourceTree = "<group>"; };
+		95365F471B3951F8009E552E /* DVVFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVFeedTableViewCell.m; sourceTree = "<group>"; };
+		95365F4A1B3C420B009E552E /* DVVPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVPost.h; sourceTree = "<group>"; };
+		95365F4B1B3C420B009E552E /* DVVPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVPost.m; sourceTree = "<group>"; };
 		9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shmeensta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta.release.xcconfig"; sourceTree = "<group>"; };
 		E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shmeensta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,10 +108,10 @@
 			children = (
 				95365F1D1B3948A3009E552E /* AppDelegate.h */,
 				95365F1E1B3948A3009E552E /* AppDelegate.m */,
-				95365F421B394CBF009E552E /* DVVLoginViewController.h */,
-				95365F431B394CBF009E552E /* DVVLoginViewController.m */,
-				95365F3F1B394AF8009E552E /* DVVFeedTableViewController.h */,
-				95365F401B394AF8009E552E /* DVVFeedTableViewController.m */,
+				95365F4A1B3C420B009E552E /* DVVPost.h */,
+				95365F4B1B3C420B009E552E /* DVVPost.m */,
+				95365F491B39520B009E552E /* Views */,
+				95365F451B3951D5009E552E /* Controllers */,
 				95365F231B3948A3009E552E /* Main.storyboard */,
 				95365F261B3948A3009E552E /* Images.xcassets */,
 				95365F281B3948A3009E552E /* LaunchScreen.xib */,
@@ -138,6 +144,26 @@
 				95365F341B3948A3009E552E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95365F451B3951D5009E552E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				95365F421B394CBF009E552E /* DVVLoginViewController.h */,
+				95365F431B394CBF009E552E /* DVVLoginViewController.m */,
+				95365F3F1B394AF8009E552E /* DVVFeedTableViewController.h */,
+				95365F401B394AF8009E552E /* DVVFeedTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		95365F491B39520B009E552E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95365F461B3951F8009E552E /* DVVFeedTableViewCell.h */,
+				95365F471B3951F8009E552E /* DVVFeedTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F9EF642D02B4C2FBB6FAB0EE /* Frameworks */ = {
@@ -283,9 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95365F4C1B3C420B009E552E /* DVVPost.m in Sources */,
 				95365F411B394AF8009E552E /* DVVFeedTableViewController.m in Sources */,
 				95365F1F1B3948A3009E552E /* AppDelegate.m in Sources */,
 				95365F1C1B3948A3009E552E /* main.m in Sources */,
+				95365F481B3951F8009E552E /* DVVFeedTableViewCell.m in Sources */,
 				95365F441B394CBF009E552E /* DVVLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

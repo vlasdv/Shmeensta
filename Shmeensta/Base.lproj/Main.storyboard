@@ -17,23 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="jvH-rf-rJd" kind="show" identifier="DVVShowFeed" id="p6c-x8-Sdu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0y9-44-yog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-103" y="451"/>
         </scene>
-        <!--Feed Table View Controller-->
+        <!--Shmeensta-->
         <scene sceneID="mW5-k4-Xdd">
             <objects>
-                <tableViewController id="EdI-ot-iN5" customClass="DVVFeedTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DVVFeedTableViewController" id="EdI-ot-iN5" customClass="DVVFeedTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="I4k-iw-gQ5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SpP-dv-H0L">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DVVFeedCell" rowHeight="44" id="Az0-z3-ioA" customClass="DVVFeedTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SpP-dv-H0L" id="Ng8-Yh-hnL">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Az0-z3-ioA" id="5Gr-1j-Epu">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -43,10 +46,35 @@
                             <outlet property="delegate" destination="EdI-ot-iN5" id="amV-X0-g9I"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Shmeensta" id="3Qg-oZ-xvY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8W8-0e-mmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="451"/>
+            <point key="canvasLocation" x="1365" y="450.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v6D-UY-Zz7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jvH-rf-rJd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d7l-eT-6lx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EdI-ot-iN5" kind="relationship" relationship="rootViewController" id="7YZ-hl-ePQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ux1-LG-p3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="451"/>
         </scene>
     </scenes>
 </document>
