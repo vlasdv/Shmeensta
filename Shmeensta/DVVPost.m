@@ -13,19 +13,24 @@
 - (id)initWithJSONData:(NSDictionary *)data {
     self = [super init];
     if (self) {
-     
+        
+        NSDictionary *user = [data objectForKey:@"user"];
+        self.username = [user objectForKey:@"username"];
+        self.userID = [user objectForKey:@"id"];
+        self.profilePicture = [NSURL URLWithString:[user objectForKey:@"profile_picture"]];
+        
         NSDictionary *caption = [data objectForKey:@"caption"];
-        
-        self.username = [[caption objectForKey:@"from"] objectForKey:@"username"];
-        self.profilePicture = [NSURL URLWithString:[caption objectForKey:@"profile_picture"]];
-        self.captionText = [caption objectForKey:@"text"];
+        if ([caption class] != [NSNull class]) {
+            self.captionText = [caption objectForKey:@"text"];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            self.createdTime = [formatter dateFromString:[caption objectForKey:@"text"]];
+        }
 
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        self.createdTime = [formatter dateFromString:[caption objectForKey:@"text"]];
-        
         self.standardResolutionPhoto = [NSURL URLWithString:[[[data objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"]];
 
         self.likes = [data objectForKey:@"likes"];
+        self.numberOfLikes = [[[data objectForKey:@"likes"] objectForKey:@"count"] integerValue];
+        
         self.comments = [data objectForKey:@"comments"];
         
     }
@@ -68,7 +73,25 @@
                                 }
                                 );
      */
-    return [[self.likes objectForKey:@"count"] integerValue];
+    if (self.likes != NULL) {
+        return [[self.likes objectForKey:@"count"] integerValue];
+    } else {
+        return 0;
+    }
+
+}
+
+- (NSComparisonResult)compare:(DVVPost *)other
+{
+    NSComparisonResult order;
+    
+    // first compare modified
+    order = [[NSNumber numberWithInteger:other.numberOfLikes] compare:[NSNumber numberWithInteger:self.numberOfLikes]];
+    // if same modified alpha by path
+//    if (order == NSOrderedSame) {
+//        order = [other.createdTime compare:self.createdTime];
+//    }
+    return order;
 }
 
 @end
