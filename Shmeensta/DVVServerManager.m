@@ -8,6 +8,7 @@
 
 #import "DVVServerManager.h"
 #import "DVVPost.h"
+#import "DVVUser.h"
 
 @interface DVVServerManager()
 
@@ -50,6 +51,62 @@ typedef void (^SuccessBlock)(NSArray *);
 - (NSString *)getAccessToken {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     return [userDefaults objectForKey:@"accessToken"];
+}
+
+- (void)selfUserIDwithSuccess:(void(^)(NSString *userID))success {
+    
+    NSString *stringURL = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/?access_token=%@", [self getAccessToken]];
+    NSURL *url = [NSURL URLWithString:stringURL];
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            
+            NSError *jsonError = nil;
+            id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            if ([result isKindOfClass:[NSDictionary class]] && !jsonError) {
+
+                success([[result objectForKey:@"data"] objectForKey:@"id"]);
+            }
+            
+        } else {
+            
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)searchForUsersWithUsername:(NSString *)username success:(void(^)(NSArray *users))success {
+    
+    NSString *stringURL = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/search?q=%@&access_token=%@", username, [self getAccessToken]];
+    NSURL *url = [NSURL URLWithString:stringURL];
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+#warning check other requests
+            if (httpResponse.statusCode == 200) {
+                NSError *jsonError;
+                NSArray *jsonData = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError] objectForKey:@"data"];
+                
+                if (!jsonError) {
+                    
+                    NSMutableArray *users = [NSMutableArray array];
+                    for (NSDictionary *jsonUser in jsonData) {
+                        DVVUser *user = [[DVVUser alloc] initWithJSONData:jsonUser];
+                        [users addObject:user];
+                    }
+                    if (success) {
+                        success(users);
+                    }
+                }
+            }
+            
+        } else {
+            
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)fetchAllPostsForUserID:(NSString *)userID success:(void(^)(NSArray *posts))success {

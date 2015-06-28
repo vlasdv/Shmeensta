@@ -23,22 +23,25 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
 
-        self.userID = @"173571053";
-        
-        [[DVVServerManager sharedManager] fetchAllPostsForUserID:self.userID success:^(NSArray *posts) {
-            self.posts = [posts sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                return [obj1 compare:obj2];
-            }];
-            NSLog(@"count %lu", (unsigned long)[posts count]);
-            [self.tableView reloadData];
-        }];
-
+//        self.userID = @"173571053";
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.rowHeight = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+    
+    if (!self.userID) {
+        [[DVVServerManager sharedManager] selfUserIDwithSuccess:^(NSString *userID) {
+            self.userID = userID;
+            [self fetchData];
+        }];
+    } else {
+        [self fetchData];
+    }
+    
 
 }
 
@@ -48,6 +51,21 @@
 }
 
 #pragma mark - UITableViewDataSource
+
+- (void)fetchData {
+    [[DVVServerManager sharedManager] fetchAllPostsForUserID:self.userID success:^(NSArray *posts) {
+
+        NSLog(@"sorting start, %@", [NSDate date]);
+        self.posts = [posts sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return [obj1 compare:obj2];
+        }];
+        NSLog(@"sorting finished, %@", [NSDate date]);
+//        self.posts = posts;
+        
+        NSLog(@"count %lu", (unsigned long)[posts count]);
+        [self.tableView reloadData];
+    }];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -62,26 +80,38 @@
     NSURL *photoURL = currentPost.standardResolutionPhoto;
 #warning - weakcell
     NSURLSession *session = [[DVVServerManager sharedManager] session];
-    cell.imageView.image = nil;
-    cell.textLabel.text = @"";
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:photoURL
-                                                 completionHandler:^(NSData *data, NSURLResponse *response,
-                                                                     NSError *error) {
-                                                     if (!error) {
-                                                         UIImage *image = [[UIImage alloc] initWithData:data];
-                                                         //                                                     photo.thumbNail = image;
-                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                                                             cell.imageView.image = image;
-                                                             cell.textLabel.text = [NSString stringWithFormat:@"%@ : %ld", currentPost.username, (long)currentPost.numberOfLikes];
-                                                         });
-                                                     } else {
-                                                         // HANDLE ERROR //
-                                                     }
-                                                 }];
+    
+    cell.photoImageView.image = nil;
+    cell.likesLabel.text = @"";
+    
+    __weak DVVFeedTableViewCell *weakCell = cell;
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:photoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+
+        if (!error) {
+            UIImage *image = [[UIImage alloc] initWithData:data];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
+                weakCell.photoImageView.image = image;
+                weakCell.likesLabel.text = [NSString stringWithFormat:@"%ld   ", (long)currentPost.numberOfLikes];
+//                weakCell.textLabel.text = [NSString stringWithFormat:@"%@ : %ld", currentPost.username, (long)currentPost.numberOfLikes];
+                [weakCell layoutSubviews];
+
+            });
+
+
+            
+        } else {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
     [dataTask resume];
     
     return cell;
 }
+
+
 
 @end

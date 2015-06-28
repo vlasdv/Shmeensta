@@ -19,6 +19,8 @@
 		95365F4C1B3C420B009E552E /* DVVPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F4B1B3C420B009E552E /* DVVPost.m */; };
 		95365F521B3D6197009E552E /* DVVFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F511B3D6197009E552E /* DVVFeedTableViewController.m */; };
 		95365F551B3E7980009E552E /* DVVServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F541B3E7980009E552E /* DVVServerManager.m */; };
+		95365F581B400A88009E552E /* DVVSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F571B400A88009E552E /* DVVSearchTableViewController.m */; };
+		95365F5B1B400C07009E552E /* DVVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F5A1B400C07009E552E /* DVVUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		95365F511B3D6197009E552E /* DVVFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVFeedTableViewController.m; sourceTree = "<group>"; };
 		95365F531B3E7980009E552E /* DVVServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVServerManager.h; sourceTree = "<group>"; };
 		95365F541B3E7980009E552E /* DVVServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVServerManager.m; sourceTree = "<group>"; };
+		95365F561B400A88009E552E /* DVVSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVSearchTableViewController.h; sourceTree = "<group>"; };
+		95365F571B400A88009E552E /* DVVSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVSearchTableViewController.m; sourceTree = "<group>"; };
+		95365F591B400C07009E552E /* DVVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVUser.h; sourceTree = "<group>"; };
+		95365F5A1B400C07009E552E /* DVVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVUser.m; sourceTree = "<group>"; };
 		9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shmeensta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta.release.xcconfig"; sourceTree = "<group>"; };
 		E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shmeensta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +119,8 @@
 				95365F1E1B3948A3009E552E /* AppDelegate.m */,
 				95365F4A1B3C420B009E552E /* DVVPost.h */,
 				95365F4B1B3C420B009E552E /* DVVPost.m */,
+				95365F591B400C07009E552E /* DVVUser.h */,
+				95365F5A1B400C07009E552E /* DVVUser.m */,
 				95365F491B39520B009E552E /* Views */,
 				95365F451B3951D5009E552E /* Controllers */,
 				95365F231B3948A3009E552E /* Main.storyboard */,
@@ -158,6 +166,8 @@
 				95365F541B3E7980009E552E /* DVVServerManager.m */,
 				95365F501B3D6197009E552E /* DVVFeedTableViewController.h */,
 				95365F511B3D6197009E552E /* DVVFeedTableViewController.m */,
+				95365F561B400A88009E552E /* DVVSearchTableViewController.h */,
+				95365F571B400A88009E552E /* DVVSearchTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -317,9 +327,11 @@
 				95365F4C1B3C420B009E552E /* DVVPost.m in Sources */,
 				95365F521B3D6197009E552E /* DVVFeedTableViewController.m in Sources */,
 				95365F551B3E7980009E552E /* DVVServerManager.m in Sources */,
+				95365F5B1B400C07009E552E /* DVVUser.m in Sources */,
 				95365F1F1B3948A3009E552E /* AppDelegate.m in Sources */,
 				95365F1C1B3948A3009E552E /* main.m in Sources */,
 				95365F481B3951F8009E552E /* DVVFeedTableViewCell.m in Sources */,
+				95365F581B400A88009E552E /* DVVSearchTableViewController.m in Sources */,
 				95365F441B394CBF009E552E /* DVVLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

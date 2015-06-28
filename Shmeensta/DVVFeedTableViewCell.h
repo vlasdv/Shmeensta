@@ -10,4 +10,7 @@
 
 @interface DVVFeedTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
+
 @end

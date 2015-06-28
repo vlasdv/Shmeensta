@@ -14,6 +14,10 @@
 
 + (DVVServerManager *)sharedManager;
 
+- (void)selfUserIDwithSuccess:(void(^)(NSString *userID))success;
+
 - (void)fetchAllPostsForUserID:(NSString *)userID success:(void(^)(NSArray *posts))success;
+
+- (void)searchForUsersWithUsername:(NSString *)username success:(void(^)(NSArray *users))success;
 
 @end
