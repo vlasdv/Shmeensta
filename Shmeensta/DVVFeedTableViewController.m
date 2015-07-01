@@ -21,32 +21,10 @@
 
 @implementation DVVFeedTableViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-
-//        self.userID = @"173571053";
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.rowHeight = CGRectGetWidth([[UIScreen mainScreen] bounds]);
-    
-    UIView *loadingView = [[UIView alloc] initWithFrame:self.view.frame];
-    loadingView.backgroundColor = [UIColor colorWithRed:170.f green:170.f blue:170.f alpha:1.f];
-    
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds) - 60.f);
-    [indicator startAnimating];
-    
-    [loadingView addSubview:indicator];
-    
-    self.loadingView = loadingView;
-    
-    [self.view addSubview:loadingView];
     
     if (!self.userID) {
         [[DVVServerManager sharedManager] selfUserIDwithSuccess:^(NSString *userID) {
@@ -63,6 +41,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UI
+
+- (void)addLoadingView {
+    
+    UIView *loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+    loadingView.backgroundColor = [UIColor colorWithRed:170.f green:170.f blue:170.f alpha:1.f];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds) - 60.f);
+    [indicator startAnimating];
+    
+    [loadingView addSubview:indicator];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.f, CGRectGetMinY(indicator.frame) + 40.f, CGRectGetWidth(loadingView.frame), 70.f)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor lightGrayColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue" size:12.f];
+    label.numberOfLines = 0;
+    label.text = @"your data is loading, \nit may take some time \n\n(●￣(ｴ)￣●)";
+    
+    [loadingView addSubview:label];
+    
+    self.loadingView = loadingView;
+    
+    [self.view addSubview:loadingView];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (void)fetchData {
@@ -71,8 +76,6 @@
         self.posts = [posts sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             return [obj1 compare:obj2];
         }];
-        
-        NSLog(@"count %lu", (unsigned long)[posts count]);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             

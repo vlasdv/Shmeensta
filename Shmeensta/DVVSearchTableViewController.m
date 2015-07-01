@@ -43,7 +43,7 @@
         self.users = users;
 
         dispatch_async(dispatch_get_main_queue(), ^{
-#warning that's a bullshit
+
             [self.tableView reloadData];
         });
         
@@ -61,18 +61,9 @@
     
     static NSString *cellIdentifier = @"DVVSearchTableViewCell";
     DVVSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
     
     DVVUser *user = [self.users objectAtIndex:indexPath.row];
-    
-    cell.usernameLabel.text = user.username;
-    
-//    cell.userpicImageView.layer.cornerRadius = 18.5f;
-//    cell.userpicImageView.layer.masksToBounds = YES;
-    
+    cell.usernameLabel.text = user.username;    
     [cell.userpicImageView sd_setImageWithURL:user.profilePicture];
     
     return cell;
@@ -83,7 +74,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self performSegueWithIdentifier:@"DVVShowFeed" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -103,7 +93,6 @@
         [self.tableView reloadData];
     } else {
         [self fetchDataForUsername:searchText];
-
     }
 }
 
@@ -128,7 +117,6 @@
         DVVUser *currentUser = [self.users objectAtIndex:[[self.tableView indexPathForCell:sender] row]];
         vc.userID = currentUser.userID;
     }
-    
 }
 
 @end

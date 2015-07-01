@@ -14,15 +14,9 @@
 
 @property (strong, nonatomic) NSMutableArray *postsArray;
 
-@property (assign, nonatomic) BOOL onOff;
-
-@property (strong, nonatomic) NSArray *allPosts;
-
 @end
 
 @implementation DVVServerManager
-
-typedef void (^SuccessBlock)(NSArray *);
 
 - (instancetype)init
 {
@@ -30,8 +24,6 @@ typedef void (^SuccessBlock)(NSArray *);
     if (self) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.session = [NSURLSession sessionWithConfiguration:configuration];
-        
-        self.onOff = YES;
     }
     return self;
 }
@@ -83,7 +75,7 @@ typedef void (^SuccessBlock)(NSArray *);
         if (!error) {
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-#warning check other requests
+
             if (httpResponse.statusCode == 200) {
                 NSError *jsonError;
                 NSArray *jsonData = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError] objectForKey:@"data"];
@@ -113,8 +105,6 @@ typedef void (^SuccessBlock)(NSArray *);
    
     NSString *stringURL = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@", userID, [self getAccessToken]];
     NSURL *url = [NSURL URLWithString:stringURL];
-    
-    self.allPosts = [NSArray array];
     
     [self fetchAllPostsFromURL:url success:^(NSArray *posts) {
         success(posts);
@@ -152,7 +142,6 @@ typedef void (^SuccessBlock)(NSArray *);
                 
             } else {
 
-                NSLog(@"finish %@", [NSDate date]);
                 success(allPosts);
             }
 
@@ -164,7 +153,6 @@ typedef void (^SuccessBlock)(NSArray *);
         
     }];
     
-    NSLog(@"start %@", [NSDate date]);
     [dataTask resume];
 }
 

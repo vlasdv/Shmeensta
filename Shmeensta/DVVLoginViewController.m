@@ -60,9 +60,6 @@ static NSString *redirectURI = @"ig3836f2581032482483b7120bdf405f64://authorize"
 
 - (void)showFeed {
 
-//    DVVFeedTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DVVFeedTableViewController"];
-//    [self presentViewController:vc animated:YES completion:nil];
-    
     [self performSegueWithIdentifier:@"DVVShowFeed" sender:self];
 }
 
