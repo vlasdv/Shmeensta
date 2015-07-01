@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) UIView *loadingView;
+@property (strong, nonatomic) UIView *noPhotosView;
+
 
 @end
 
@@ -25,6 +27,8 @@
     [super viewDidLoad];
     
     self.tableView.rowHeight = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+    
+    [self addLoadingView];
     
     if (!self.userID) {
         [[DVVServerManager sharedManager] selfUserIDwithSuccess:^(NSString *userID) {
@@ -68,6 +72,28 @@
     [self.view addSubview:loadingView];
 }
 
+- (void)addNoPhotosView {
+    
+    UIView *noPhotosView = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    noPhotosView.backgroundColor = [UIColor colorWithRed:170.f green:170.f blue:170.f alpha:1.f];
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.f, CGRectGetMidY(noPhotosView.frame) - 80.f, CGRectGetWidth(noPhotosView.frame), 60.f)];
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor lightGrayColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue" size:16.f];
+    label.numberOfLines = 0;
+    label.text = @"no photos \n\n(´∩｀。)";
+    
+    [noPhotosView addSubview:label];
+    
+    noPhotosView.alpha = 0.f;
+    self.noPhotosView = noPhotosView;
+    
+    [self.view addSubview:noPhotosView];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (void)fetchData {
@@ -81,6 +107,12 @@
             
             [UIView animateWithDuration:1.f animations:^{
                 self.loadingView.alpha = 0.f;
+
+                if ([self.posts count] == 0) {
+                    [self addNoPhotosView];
+                    self.noPhotosView.alpha = 1.f;
+                }
+                
             }];
             
             [self.tableView reloadData];
