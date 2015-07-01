@@ -151,7 +151,8 @@ typedef void (^SuccessBlock)(NSArray *);
                 }];
                 
             } else {
-                
+
+                NSLog(@"finish %@", [NSDate date]);
                 success(allPosts);
             }
 
@@ -163,6 +164,7 @@ typedef void (^SuccessBlock)(NSArray *);
         
     }];
     
+    NSLog(@"start %@", [NSDate date]);
     [dataTask resume];
 }
 

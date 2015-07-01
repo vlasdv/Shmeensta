@@ -21,6 +21,9 @@
 		95365F551B3E7980009E552E /* DVVServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F541B3E7980009E552E /* DVVServerManager.m */; };
 		95365F581B400A88009E552E /* DVVSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F571B400A88009E552E /* DVVSearchTableViewController.m */; };
 		95365F5B1B400C07009E552E /* DVVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 95365F5A1B400C07009E552E /* DVVUser.m */; };
+		953FC2B91B42F1DB00F64ACA /* LobsterTwo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 953FC2B71B42F14200F64ACA /* LobsterTwo-Regular.otf */; };
+		953FC2BC1B42F37300F64ACA /* DVVNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 953FC2BB1B42F37300F64ACA /* DVVNavigationBar.m */; };
+		9590E39F1B43FEA700EAE7FC /* DVVSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590E39E1B43FEA700EAE7FC /* DVVSearchTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,11 @@
 		95365F571B400A88009E552E /* DVVSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVSearchTableViewController.m; sourceTree = "<group>"; };
 		95365F591B400C07009E552E /* DVVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVUser.h; sourceTree = "<group>"; };
 		95365F5A1B400C07009E552E /* DVVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVUser.m; sourceTree = "<group>"; };
+		953FC2B71B42F14200F64ACA /* LobsterTwo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LobsterTwo-Regular.otf"; path = "Additional/LobsterTwo-Regular.otf"; sourceTree = "<group>"; };
+		953FC2BA1B42F37300F64ACA /* DVVNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVNavigationBar.h; sourceTree = "<group>"; };
+		953FC2BB1B42F37300F64ACA /* DVVNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVNavigationBar.m; sourceTree = "<group>"; };
+		9590E39D1B43FEA700EAE7FC /* DVVSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVSearchTableViewCell.h; sourceTree = "<group>"; };
+		9590E39E1B43FEA700EAE7FC /* DVVSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVSearchTableViewCell.m; sourceTree = "<group>"; };
 		9814F3D828B1B651FB3DB816 /* Pods-Shmeensta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shmeensta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shmeensta/Pods-Shmeensta.release.xcconfig"; sourceTree = "<group>"; };
 		E5B1C85DFDEB3C55816B7098 /* libPods-Shmeensta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shmeensta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,17 +123,12 @@
 		95365F181B3948A3009E552E /* Shmeensta */ = {
 			isa = PBXGroup;
 			children = (
-				95365F1D1B3948A3009E552E /* AppDelegate.h */,
-				95365F1E1B3948A3009E552E /* AppDelegate.m */,
-				95365F4A1B3C420B009E552E /* DVVPost.h */,
-				95365F4B1B3C420B009E552E /* DVVPost.m */,
-				95365F591B400C07009E552E /* DVVUser.h */,
-				95365F5A1B400C07009E552E /* DVVUser.m */,
+				9590E3A01B441A7200EAE7FC /* Models */,
 				95365F491B39520B009E552E /* Views */,
 				95365F451B3951D5009E552E /* Controllers */,
 				95365F231B3948A3009E552E /* Main.storyboard */,
-				95365F261B3948A3009E552E /* Images.xcassets */,
 				95365F281B3948A3009E552E /* LaunchScreen.xib */,
+				95365F261B3948A3009E552E /* Images.xcassets */,
 				95365F191B3948A3009E552E /* Supporting Files */,
 			);
 			path = Shmeensta;
@@ -134,6 +137,7 @@
 		95365F191B3948A3009E552E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				953FC2B81B42F14500F64ACA /* Fonts */,
 				95365F1A1B3948A3009E552E /* Info.plist */,
 				95365F1B1B3948A3009E552E /* main.m */,
 			);
@@ -160,10 +164,12 @@
 		95365F451B3951D5009E552E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				95365F421B394CBF009E552E /* DVVLoginViewController.h */,
-				95365F431B394CBF009E552E /* DVVLoginViewController.m */,
+				95365F1D1B3948A3009E552E /* AppDelegate.h */,
+				95365F1E1B3948A3009E552E /* AppDelegate.m */,
 				95365F531B3E7980009E552E /* DVVServerManager.h */,
 				95365F541B3E7980009E552E /* DVVServerManager.m */,
+				95365F421B394CBF009E552E /* DVVLoginViewController.h */,
+				95365F431B394CBF009E552E /* DVVLoginViewController.m */,
 				95365F501B3D6197009E552E /* DVVFeedTableViewController.h */,
 				95365F511B3D6197009E552E /* DVVFeedTableViewController.m */,
 				95365F561B400A88009E552E /* DVVSearchTableViewController.h */,
@@ -175,10 +181,33 @@
 		95365F491B39520B009E552E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				953FC2BA1B42F37300F64ACA /* DVVNavigationBar.h */,
+				953FC2BB1B42F37300F64ACA /* DVVNavigationBar.m */,
 				95365F461B3951F8009E552E /* DVVFeedTableViewCell.h */,
 				95365F471B3951F8009E552E /* DVVFeedTableViewCell.m */,
+				9590E39D1B43FEA700EAE7FC /* DVVSearchTableViewCell.h */,
+				9590E39E1B43FEA700EAE7FC /* DVVSearchTableViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		953FC2B81B42F14500F64ACA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				953FC2B71B42F14200F64ACA /* LobsterTwo-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		9590E3A01B441A7200EAE7FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95365F4A1B3C420B009E552E /* DVVPost.h */,
+				95365F4B1B3C420B009E552E /* DVVPost.m */,
+				95365F591B400C07009E552E /* DVVUser.h */,
+				95365F5A1B400C07009E552E /* DVVUser.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		F9EF642D02B4C2FBB6FAB0EE /* Frameworks */ = {
@@ -272,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95365F251B3948A3009E552E /* Main.storyboard in Resources */,
+				953FC2B91B42F1DB00F64ACA /* LobsterTwo-Regular.otf in Resources */,
 				95365F2A1B3948A3009E552E /* LaunchScreen.xib in Resources */,
 				95365F271B3948A3009E552E /* Images.xcassets in Resources */,
 			);
@@ -328,6 +358,8 @@
 				95365F521B3D6197009E552E /* DVVFeedTableViewController.m in Sources */,
 				95365F551B3E7980009E552E /* DVVServerManager.m in Sources */,
 				95365F5B1B400C07009E552E /* DVVUser.m in Sources */,
+				9590E39F1B43FEA700EAE7FC /* DVVSearchTableViewCell.m in Sources */,
+				953FC2BC1B42F37300F64ACA /* DVVNavigationBar.m in Sources */,
 				95365F1F1B3948A3009E552E /* AppDelegate.m in Sources */,
 				95365F1C1B3948A3009E552E /* main.m in Sources */,
 				95365F481B3951F8009E552E /* DVVFeedTableViewCell.m in Sources */,

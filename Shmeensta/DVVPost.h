@@ -16,6 +16,8 @@
 @property (assign, nonatomic) NSDate *createdTime;
 @property (strong, nonatomic) NSString *captionText;
 @property (strong, nonatomic) NSURL *standardResolutionPhoto;
+@property (strong, nonatomic) NSURL *lowResolutionPhoto;
+
 @property (assign, nonatomic) NSDictionary *likes;
 
 @property (assign, nonatomic) NSInteger numberOfLikes;

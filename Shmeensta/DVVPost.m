@@ -27,6 +27,7 @@
         }
 
         self.standardResolutionPhoto = [NSURL URLWithString:[[[data objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"]];
+        self.lowResolutionPhoto = [NSURL URLWithString:[[[data objectForKey:@"images"] objectForKey:@"low_resolution"] objectForKey:@"url"]];
 
         self.likes = [data objectForKey:@"likes"];
         self.numberOfLikes = [[[data objectForKey:@"likes"] objectForKey:@"count"] integerValue];

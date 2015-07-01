@@ -95,8 +95,7 @@ static NSString *redirectURI = @"ig3836f2581032482483b7120bdf405f64://authorize"
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:accessToken forKey:@"accessToken"];
         
-        DVVFeedTableViewController *vc = [[DVVFeedTableViewController alloc] init];
-        [self presentViewController:vc animated:NO completion:nil];
+        [self showFeed];
     }
     
     return YES;

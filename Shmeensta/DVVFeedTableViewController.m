@@ -10,10 +10,12 @@
 #import "DVVPost.h"
 #import "DVVFeedTableViewController.h"
 #import "DVVServerManager.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface DVVFeedTableViewController () <NSURLSessionTaskDelegate>
 
 @property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) UIView *loadingView;
 
 @end
 
@@ -30,8 +32,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.tableView.rowHeight = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+    
+    UIView *loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+    loadingView.backgroundColor = [UIColor colorWithRed:170.f green:170.f blue:170.f alpha:1.f];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds) - 60.f);
+    [indicator startAnimating];
+    
+    [loadingView addSubview:indicator];
+    
+    self.loadingView = loadingView;
+    
+    [self.view addSubview:loadingView];
     
     if (!self.userID) {
         [[DVVServerManager sharedManager] selfUserIDwithSuccess:^(NSString *userID) {
@@ -41,8 +56,6 @@
     } else {
         [self fetchData];
     }
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,15 +68,20 @@
 - (void)fetchData {
     [[DVVServerManager sharedManager] fetchAllPostsForUserID:self.userID success:^(NSArray *posts) {
 
-        NSLog(@"sorting start, %@", [NSDate date]);
         self.posts = [posts sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             return [obj1 compare:obj2];
         }];
-        NSLog(@"sorting finished, %@", [NSDate date]);
-//        self.posts = posts;
         
         NSLog(@"count %lu", (unsigned long)[posts count]);
-        [self.tableView reloadData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [UIView animateWithDuration:1.f animations:^{
+                self.loadingView.alpha = 0.f;
+            }];
+            
+            [self.tableView reloadData];
+        });
     }];
 }
 
@@ -78,37 +96,10 @@
     DVVFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DVVFeedCell"];
     DVVPost *currentPost = [self.posts objectAtIndex:indexPath.row];
     NSURL *photoURL = currentPost.standardResolutionPhoto;
-#warning - weakcell
-    NSURLSession *session = [[DVVServerManager sharedManager] session];
-    
-    cell.photoImageView.image = nil;
-    cell.likesLabel.text = @"";
-    
-    __weak DVVFeedTableViewCell *weakCell = cell;
-    
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:photoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
-        if (!error) {
-            UIImage *image = [[UIImage alloc] initWithData:data];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                
-                weakCell.photoImageView.image = image;
-                weakCell.likesLabel.text = [NSString stringWithFormat:@"%ld   ", (long)currentPost.numberOfLikes];
-//                weakCell.textLabel.text = [NSString stringWithFormat:@"%@ : %ld", currentPost.username, (long)currentPost.numberOfLikes];
-                [weakCell layoutSubviews];
+    [cell.photoImageView sd_setImageWithURL:photoURL];
+    cell.likesLabel.text = [NSString stringWithFormat:@"%ld   ", (long)currentPost.numberOfLikes];
 
-            });
-
-
-            
-        } else {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }];
-    [dataTask resume];
-    
     return cell;
 }
 

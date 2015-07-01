@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Shmeensta-AFNetworking.xcscheme</key>
+		<key>Pods-Shmeensta-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4252CA8C7B947A274CDC2B48</key>
+		<key>FCFA572B7FB6FA7AE853612F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F67F5A87264CF6F275A7E654</key>
+		<key>FD7EC3D1A83020FEF6267DBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

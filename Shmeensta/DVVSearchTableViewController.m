@@ -10,6 +10,8 @@
 #import "DVVUser.h"
 #import "DVVServerManager.h"
 #import "DVVFeedTableViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "DVVSearchTableViewCell.h"
 
 @interface DVVSearchTableViewController ()
 
@@ -22,7 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.searchBar.tintColor = [UIColor darkGrayColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,16 +59,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    static NSString *cellIdentifier = @"DVVSearchTableViewCell";
+    DVVSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
     
     DVVUser *user = [self.users objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = user.username;
+    cell.usernameLabel.text = user.username;
+    
+//    cell.userpicImageView.layer.cornerRadius = 18.5f;
+//    cell.userpicImageView.layer.masksToBounds = YES;
+    
+    [cell.userpicImageView sd_setImageWithURL:user.profilePicture];
     
     return cell;
 }
@@ -74,7 +83,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"DVVShowFeed" sender:[tableView cellForRowAtIndexPath:indexPath]];
+//    [self performSegueWithIdentifier:@"DVVShowFeed" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -87,6 +96,17 @@
     [self.searchBar resignFirstResponder];
     [self fetchDataForUsername:self.searchBar.text];
 }
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText isEqualToString:@""]) {
+        self.users = nil;
+        [self.tableView reloadData];
+    } else {
+        [self fetchDataForUsername:searchText];
+
+    }
+}
+
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     
